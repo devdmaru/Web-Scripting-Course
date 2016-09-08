@@ -1,0 +1,97 @@
+html, body {
+    height:100%; /* so we can make the container div be 100% as high as the browser window, even when there is little content) */
+    margin:0;    /* avoid tiny white border inside browser window */
+    padding-top:20px;   /* avoid tiny white border inside browser window */
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif; 
+    font-size: 20px;
+    background-color: #023474;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#container {
+
+}
+#content a:visited {
+    color: yellow;
+    text-decoration: none;
+}
+#content a:link {
+    color: yellow;
+    text-decoration: none;
+}
+
+#titleNav a:link {
+    color: white;
+    text-decoration: none;
+} 
+#titleNav a:visited {
+    color: white;
+    text-decoration: none;
+} 
+#titleNav a:hover {
+    color: purple;
+    text-decoration: none;
+} 
+#titleNav   {
+    z-index:2;       
+    position:fixed; 
+    top:0px;        
+    left:0px;       
+    width:100%;     
+    color:white;
+    font-family: serif;
+    background-color:#EF0107;
+    height: 79px;
+    min-width: 90%;  
+    border: black solid ;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+
+}
+
+
+#pageTitle {
+    padding-top:10px;
+    padding-left:10px;
+    font-size:45px;
+    font-weight:bold;
+    letter-spacing: 1.5px;
+    text-align:center;
+    float:left;
+}
+#nav {
+    padding:29px;
+    font-size:22px;
+    letter-spacing: 1px;
+    font-weight:bold;
+    float:right;
+    text-align:center;
+}
+.stopFloat {
+    clear:both;
+}
+#content {
+    margin-top: 30px;    /* added for fixed layout: prevent content from being hidden under titleNav */
+    margin-bottom: 35px; /* added for fixed layout: prevent content from being hidden under footer */
+    padding:10px;
+    color: white;
+    background-image:url("arsenal_logo.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+}
+#footer {
+    z-index:2;       /* added for fixed layout: keeps footer on top of other elemements */
+    width: 100%;     /* added for fixed layout */
+    position:fixed;  /* added for fixed layout */
+    bottom:0px;      /* added for fixed layout */
+    left:0px;        /* added for fixed layout */
+
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:10px;
+    font-size:15px;
+    letter-spacing:0.75px;
+    background-color:black;
+    opacity: 0.85;
+}
