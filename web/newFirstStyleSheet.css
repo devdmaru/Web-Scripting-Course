@@ -9,7 +9,7 @@ html, body {
 }
 
 #container {
-
+position: relative;
 }
 #content a:visited {
     color: yellow;
@@ -74,10 +74,23 @@ html, body {
     margin-bottom: 35px; /* added for fixed layout: prevent content from being hidden under footer */
     padding:10px;
     color: white;
-    background-image:url("arsenal_logo.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
+    position: relative;
+    text-shadow: 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black, 0 0 4px black;
+    z-index:1;
+
+    /*  background-image:url("arsenal_logo.png");
+  //  background-repeat: no-repeat;
+  //  background-position: center;
+   // background-attachment: fixed;
+    */
+}
+#pic{
+    position: fixed;
+    top: 235px;
+    left: 420px;
+    opacity: 0.45;
+    z-index: -1;
+    
 }
 #footer {
     z-index:2;       /* added for fixed layout: keeps footer on top of other elemements */
