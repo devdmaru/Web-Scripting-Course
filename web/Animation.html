@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Animation Lab</title> 
+        <style>
+            #container{
+                position: relative;
+            }
+            #pic {
+                position:absolute;
+                top: 9px;
+                left: 4px;
+            }
+            #box{
+                position: absolute;
+                top:0px;
+                left:0px;
+                margin-top: 5px;
+                border: 3px solid black;
+                background-color: #1aa3ff
+            }
+
+
+        </style>
+    </head>
+    <body>
+        <input type="button" value="Advance Image" onClick="changeImage()"/>
+        <input type="button" value="Start Animation" onClick="startAnimation()"/>
+        <input type="button" value="Stop Animation" onClick="stopAnimation()"/>
+        <div id="container">
+            <div id="box"></div>
+            <img src="pipboy2.png" width="100" height="100" id="pic"/>
+        </div>
+
+        <script type="text/javascript">
+
+        
+            var x = 20;
+            var y = 20;
+            
+               
+               
+        
+            var p = 10;
+            var q = 10;
+            
+            document.getElementById('box').style.height = 401 + "px";
+            document.getElementById('box').style.width = 805 + "px";
+            function changeImage() {
+               
+                x = x + p;
+                y = y + q;
+
+                if ((x > 700) || (x < 10)) {
+                    p = -p;
+                }
+
+                if ((y > 305) || (y < 11)) {
+                    q = -q;
+                }
+                
+
+                document.getElementById('pic').style.left = x + "px";
+                document.getElementById('pic').style.top = y + "px";
+            }
+
+            var intervalHandle;
+            function startAnimation() {
+                changeImage();
+                intervalHandle = setInterval(changeImage, 80); /* name of function, how often to run it */
+            }
+
+            function stopAnimation() {
+                
+                clearInterval(intervalHandle); // stop calling changeImage over and over
+            }
+
+        </script>
+    </body>
+</html>
