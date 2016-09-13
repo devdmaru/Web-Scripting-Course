@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+
+    <head>
+        <title>Animation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            body{
+                background-color: #1aa3ff;    
+            }
+            #box{
+                position: relative;
+                border: 3px #000000;
+                background-color: white;
+                margin: auto;
+                top:auto;
+            }
+           
+            .sprite{
+                position: absolute;
+                width:50px;
+                height:50px;
+                background-image:url(goku_sprites1.png);   
+            }
+            .sprite1{
+                background-position: 0px 0px;
+            }
+            .sprite2{
+                background-position: -50px 0px;
+            }
+            .sprite3{
+                background-position: -100px 0px;
+            }
+            .sprite4{
+                background-position: -150px 0px;
+            }
+            .sprite5{
+                background-position: -200px 0px;
+            }
+            .sprite6{
+                background-position: -260px 0px;
+            }
+            .sprite7{
+                background-position: -310px 0px;
+            }
+            .sprite8{
+                background-position: -370px 0px;
+            }
+            .sprite9{
+                background-position: -430px 0px;
+            }
+            .sprite10{
+                background-position: -496px 0px;
+            }
+            .sprite11{
+                background-position: -550px 0px;
+            }
+            .sprite12{
+                background-position: -593px 0px;
+            }
+            .sprite13{
+                background-position: -632px 0px;
+            }
+        </style>
+    </head>
+
+    <body>
+        
+        <input type = "button" value ="Advance Image" onclick ="changeImage()"/>
+        <input type = "button" value ="Start Animation" onclick ="startAnimation()"/>
+        <input type = "button" value ="Stop Animation" onclick ="stopAnimation()"/>
+     <!--   <input type = "button" value ="Start Image Movement" onclick ="moveImagePos()"/>
+        <input type = "button" value ="Stop Image Movement" onclick ="imagePosStop()"/> -->
+        <div id ="box">
+            <div id = "pic" class="sprite sprite1"> </div>
+        </div>
+           
+        <div>
+            <script language ="Javascript">
+
+                function $(id) {
+                    return document.getElementById(id);
+                }
+
+                //Set box height and width. 
+                $("box").style.height = 500 + "px";
+                $("box").style.width = 500 + "px";
+
+                //initial image position.
+                $('pic').style.left = 0 + "px";
+                $('pic').style.top = 0 + "px";
+
+
+
+                var x = 25;
+                var y = 10;
+                var p = 10;
+                var q = 5;
+                var i = 1;
+                // moves the image to the next sprite
+                function changeImage() {
+                    i = i + 1;
+                    if (i > 13) {
+                        i = 1;
+                    }
+                    $("pic").className = 'sprite sprite' + i;
+                }
+                //Changes the position of the image
+                function changePos() {
+                    x = x + p;
+                    y = y + q;
+
+                    if ((x > 450) || (x < 0)) {
+                        p = -p;
+                    }
+                    if ((y > 450) || (y < 0)) {
+                        q = -q;
+                    }
+                    $('pic').style.left = x + "px";
+                    $('pic').style.top = y + "px";
+                }
+
+                var intervalHandle;var interval; 
+                function startAnimation() {
+                    changeImage();
+                    intervalHandle = setInterval(changeImage, 80);
+                    changePos();
+                    interval = setInterval(changePos, 90);
+                }
+
+                function stopAnimation() {
+                    clearInterval(intervalHandle);
+                     clearInterval(interval);
+                }
+            /*    var interval; 
+                function moveImagePos(){
+                    changePos();
+                    interval = setInterval(changePos, 90);
+                }
+                function imagePosStop(){
+                    clearInterval(interval);
+                }
+                */
+            </script>
+            
+
+        </div>
+    </body>
+</html>
