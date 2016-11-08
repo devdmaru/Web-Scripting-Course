@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arsenal Players using jQuery</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <style type="text/css">
+            #navContainer{
+                border: 4px solid black;
+                background-color: #1919FF;
+                padding: 2%;
+                position: relative;
+            }
+            #nav{
+                position: absolute;
+                padding: 2%;
+                font-size: 20px;
+                right: 2%;
+                top: 12%;
+                border: 2px solid black;
+                border-radius: 20px;
+                background-color: grey;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+            }
+            #nav a:visited{
+                color: white;
+                text-decoration: none;
+            }
+            body {
+                background-color: #EA2212;
+                color:white;
+                font-size:14px;
+                font-weight:bold;
+                letter-spacing:1px;
+                line-height:24px;
+                margin:auto;
+                font-family:Verdana, Geneva, sans-serif;
+            }
+            #box {
+                margin:15px;
+            }
+
+            #imageContainer {
+                width:70px;
+                height: 60px;
+                padding: 1%;
+            }
+            table{
+                text-align: center;
+                border: 4px solid black;
+                display: none;              
+            }
+            #picture{
+                width: 200px;
+            }           
+            th{
+                background-color: white;
+                border: 2px solid black;
+                color: black;
+                font-size: 20px;
+                text-align: center;
+            }
+            td{
+                padding: 4px;
+                background-color: grey;
+                color: white;
+                font-size: 20px;
+                text-align:center;
+                border: 2px solid black;
+            }
+            #playerTable{
+                padding: 2%;
+            }            
+        </style>
+
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+
+            $(document).ready(function ()
+
+            {
+
+
+                $('#getButton').click(function ()
+
+                {
+                    $("table").remove();
+                    $("table").hide();
+                    var url = "webAPI.jsp";
+
+                    url += "?q=" + $("#playerSearch").val();
+
+
+                    ajaxSuccess = function (response) {
+                        var obj = eval(response);
+
+                        if (obj == null) {
+                            $("#playerList").innerHTML = "Error: JSON string evaluated to null.";
+                            return;
+                        }
+                        if (obj.dbError == null) {
+                            $("#playerList").innerHTML = "Error: JSON string did not have a 'dbError' property.";
+                            return;
+                        }
+
+                        if (obj.dbError.length > 0) {
+                            $("#playerList").innerHTML = "Database error: " + obj.dbError;
+                            return;
+                        }
+
+                        if (obj.recordList == null) {
+                            $("#playerList").innerHTML = "Error: JSON string did not have a 'recordList' property.";
+                            return;
+                        }
+
+                        if (obj.recordList.length == 0) {
+                            $("#playerList").innerHTML = "No Players Match Your Search";
+                            return;
+                        }
+
+
+                        var numPlayers = obj.recordList.length;
+                        var newTable = '<table>' +
+                                '<tr>' + '<th>Player Name</th>' +
+                                '<th>Joined</th>' +
+                                '<th>Goals</th>' +
+                                '<th>Total Appeareances</th>' +
+                                '<th>Email</th>' +
+                                '<th>Image</th>' +
+                                '</tr>';
+                        var newImg;
+                        for (i = 0; i < numPlayers; i++) {
+                            newTable += '<tr>';
+                            newTable += '<td>' + obj.recordList[i].First_Name + " " + obj.recordList[i].Last_Name + '</td>';
+                            newTable += '<td>' + obj.recordList[i].Joined + '</td>';
+                            newTable += '<td>' + obj.recordList[i].Goals + '</td>';
+                            newTable += '<td>' + obj.recordList[i].Total_Apps + '</td>';
+                            newTable += '<td>' + obj.recordList[i].Player_email + '</td>';
+                            newTable += "<td><img width= '220px' height = '150px' src = '" + obj.recordList[i].img_url + "'></td>";
+
+                            newTable += "</tr>";
+                        }
+
+                        newTable += '</table>';
+                        $(newTable).appendTo('#playerTable');
+
+                        $("table").fadeIn("slow");
+
+                    };
+
+                    ajaxError = function () {
+                        alert("Unable to retrieve data.");
+                    };
+
+                    //The ajax call...
+                    $.ajax(
+                            {
+                                type: "GET",
+                                cache: false,
+                                url: url,
+                                dataType: "json",
+                                timeout: 500, // 500 milliseconds
+                                success: ajaxSuccess,
+                                error: ajaxError
+                            }); //end of $.ajax
+
+                }); // end of click function
+
+            }); // end of document ready function
+
+        </script>
+
+    </head>
+    <body>
+        <div id="navContainer">
+            <h3>jQuery API</h3>
+            <div id="nav" >
+                <div> <a href="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">Home</a></div>
+            </div>
+        </div>
+        <div id="box">
+            <h1>Get Players</h1>
+            Enter The First Few Characters Of The Player's Name
+            <input type="text" id="playerSearch" value="A" size="30" />
+            <input type="button" value="Get Players" id="getButton"/>
+            <br/>
+
+            <div id ='playerTable'></div>
+
+        </div>
+    </body>
+</html>

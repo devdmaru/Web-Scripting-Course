@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>Bootstrap Lab</title>
+
+        <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+        <link href="custom-style.css" rel="stylesheet">
+    </head>
+    <body> 
+        <div class="navbar-wrapper">
+            <div class="container">       
+                <nav class="navbar navbar-inverse navbar-static-top">        
+                    <div class="navbar-header navbar">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse" aria ="false" >
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>                                    
+                        </button>
+                        <a class="navbar-brand" href="#">Fallout 4</a>
+                    </div>
+                    <div id="navbar1" class="navbar-collapse collapse">
+                        <ul class="nav navbar-nav">                                    
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" >Navigation<span class="caret"></span></a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href = "http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">Home</a></li>
+                                    <li><a href="#">Top</a></li>
+                                    <li><a href="#About">About</a></li>
+                                    <li><a href="#form1">Newsletter</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+            </div>
+        </div>
+
+        <div id="theCarousel" class="carousel slide" data-ride ="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target ="#theCarousel" data-slide-to = "0" class="active"></li>
+                <li data-target ="#theCarousel" data-slide-to = "1"></li>
+                <li data-target ="#theCarousel" data-slide-to = "2"></li>             
+            </ol>
+            <div class="carousel-inner">
+                <div class ="item active">
+                    <img src="fallout-4-vault-boy.png" width="1500" id="pic1"/>
+                </div>
+                <div class ="item">
+                    <img src="fallout-4.PNG" width="1500" id="pic2"/>
+                </div>
+                <div class ="item">
+                    <img src="fallout4.png" width="1500" id="pic3"/> 
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="container">
+            <div class="page-header">
+                <h1> FALLOUT 4</h1>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12" id="About">
+                    <p>
+                        <img src="Fallout_4_logo.png" width="300" id="pic4"/>
+                    </p>
+                    <h4>About</h4>
+                    <p>
+                        Fallout 4 is an action role-playing video game developed by Bethesda Game 
+                        Studios and published by Bethesda Softworks for Microsoft Windows, PlayStation 4, 
+                        and Xbox One. It is the sixth major installment in the Fallout series, and was 
+                        released worldwide on November 10, 2015.
+                    </p>
+                    <p>
+                        The game is set in a post-apocalyptic Boston in the year 2287, 210 years after 
+                        a devastating nuclear war. The player character emerges from an underground 
+                        nuclear fallout shelter known as Vault 111, and subsequently explores the world, 
+                        completes various quests and acquires experience points to level up their character. 
+                        It is the first game in the series to feature full voice acting for the protagonist.
+                    </p>
+                    <p>
+                        Fallout 4 received positive reviews from critics with many praising the world 
+                        depth, player freedom, overall amount of content, crafting, and soundtrack. 
+                        The game shipped 12 million units and generated $750 million (USD) within the 
+                        first 24 hours of its launch. The game received numerous awards and nominations 
+                        from various gaming publications, including the Academy of Interactive Arts & 
+                        Sciences and British Academy Games Awards, making it both a commercial and critical 
+                        success.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p>
+                        <img src="Fallout4_Gameplay.png" width="300" id="pic5"/>
+                    </p>
+                    <h4>Gamplay</h4>
+                    <p>
+                        Fallout 4's gameplay is similar to that of Fallout 3 and Fallout: New Vegas, 
+                        the previous two main entries in the series. Returning features include a 
+                        camera that can switch between a first-person and third-person perspective, 
+                        and the ability to roam anywhere on the map. Fallout 4 introduces new features 
+                        including a layered armor system, base-building, a dynamic dialogue system 
+                        featuring 111,000 lines of dialogue, an in-depth crafting system which 
+                        implements every lootable object in the game, and much more. Enemies such 
+                        as mole rats, raiders, super-mutants, deathclaws, and feral ghouls return in 
+                        Fallout 4, along with the companion Dogmeat.Players have the ability to 
+                        roam anywhere on the map, and leave a conversation at any time. They have 
+                        the ability to customize weapons; the game includes over 50 base guns, which 
+                        can be crafted with a variety of modifications, such as barrel types and 
+                        laser focus, with over 700 modifications available.
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                    <p>
+                        <img src="fallout-4-far-harbor.png" width="300" height="160" id="pic6"/>
+                    </p>
+                    <h4>DLC</h4>
+                    <p> On February 16, 2016, Bethesda announced details, prices, and release 
+                        dates for the first three add-ons for Fallout 4. The first add-on, 
+                        Automatron, which allows players to build their custom robot companion 
+                        by using robot parts while adding additional quests, was released to 
+                        the European and North American markets on March 22, 2016. This was 
+                        followed by Wasteland Workshop on April 12, 2016, which introduces 
+                        new build options for settlements and the ability for players to put
+                        captured creatures or humans in a cage, and adds new decorations like 
+                        neon lights and lettering. The third add-on, titled Far Harbor, 
+                        is a story expansion set on a post-war Mount Desert Island in Maine, 
+                        and was released on May 19, 2016. On June 12, 2016 at E3 2016,
+                        Bethesda revealed three new DLC packages for the game; the first two, 
+                        Contraptions Workshop, released on June 21, 2016, and Vault-Tec Workshop, 
+                        released on July 26, 2016, are structured similarly to the Wasteland Workshop 
+                        DLC, offering the player more build options and decorations. Fallout 4's third 
+                        and final DLC, Nuka-World, which was released on August 30, 2016, 
+                        adds an amusement park-based area for players to explore, in which the 
+                        player can either side with or put an end to various raider groups residing in the park.
+                    </p>
+
+                </div>
+            </div>
+        </div>
+        <div id="formbg">
+            <form id ="form1" role="form">
+                <h4> Newsletter Sign Up</h4>
+                <div class="form-group col-sm-6">
+                    <label for="inputName" class="control-label">Name</label>
+                    <input type="text" class="form-control" id="inputName" required>
+                </div>
+                <div class="form-group col-sm-6">
+                    <label for="inputEmail" class="control-label">Email</label>
+                    <input type="email" class="form-control" id="inputEmail" placeholder="Email" data-error="The email address is invalid" required>
+                    <div class="help-block with-errors"></div>
+                </div>
+                <div class="form-group col-sm-12 col-md-4 col-lg-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>
+        <div id ="footer">
+            <h4>  Dev Maru </h4>
+        </div>
+    </body>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://twitter.github.io/bootstrap/assets/js/bootstrap-dropdown.js"></script>
+</html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Arsenal Player using Javascript</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <style type="text/css">
+            #navContainer{
+                border: 4px solid black;
+                background-color: #1919FF;
+                padding: 2%;
+                position: relative;
+            }
+            #nav a:visited{
+                color: white;
+                text-decoration: none;
+            }
+            #nav{
+                position: absolute;
+                padding: 2%;
+                font-size: 20px;
+                right: 2%;
+                top: 12%;
+                border: 2px solid black;
+                border-radius: 20px;
+                background-color: grey;
+                text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+            }
+            body {
+                background-color: #EA2212;
+                color:white;
+                font-size:14px;
+                font-weight:bold;
+                letter-spacing:1px;
+                line-height:24px;
+                margin:auto;
+                font-family:Verdana, Geneva, sans-serif;
+
+            }
+            #box, table, #playerList {
+                margin:15px;
+
+            }
+
+            thead td {
+                color:#000000;
+                padding: 4px;
+                padding-top: 8px;
+                padding-bottom: 8px;
+                background-color: #FFFFFF;
+                font-weight: bold;
+                font-size:20px;
+                text-align: center;
+            }
+            td {
+                padding: 4px;
+                background-color: grey;
+                color: white;
+                font-size: 20px;
+                text-align:center;
+                border: 2px solid black;
+            }
+            img{
+                width: 220px;
+                height: 150px;
+            }
+
+        </style>
+
+    </head>
+    <body>
+        <div id="navContainer">
+            <h3>Javascript API</h3>
+            <div id="nav" >
+                <div> <a href="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">Home</a></div>
+            </div>
+        </div>
+        <div id="box">
+            <h1>Get Player Names</h1>
+
+
+            <br/><br/>Enter starting characters of player for search, for example
+            <input type="text" id="playerSearch" value="A" size="30" />
+            <input type="button" value="Search Players" onClick="javascript:ajaxGetData()"/>
+            <br/>
+            <div id="databaseError"></div>
+            <div id="playerTable"></div>  
+        </div>
+
+
+        <script language="Javascript" type="text/javascript">
+
+            function $(element) {
+                return document.getElementById(element);
+            }
+
+
+
+            function jsBuildSelectTag(optionList, tagId, parentId) {
+
+                var parent = document.getElementById(parentId);
+
+
+                var selectList = document.createElement("select");
+                selectList.id = tagId;
+                parent.appendChild(selectList);
+
+
+                for (i in optionList) {
+
+
+                    var myOption = new Option(optionList[i].name, optionList[i].id);
+                    selectList.appendChild(myOption);
+                }
+            }
+
+            function ajaxGetData() {
+
+                var url = "webAPI.jsp";
+                url += "?q=" + $("playerSearch").value;
+                console.log("ajaxGetData() url is " + url);
+                httpReq.open("GET", url);
+                httpReq.onreadystatechange = ajaxCallbackData;
+                httpReq.send(null);
+                $("playerTable").innerHTML = "";
+            }
+
+            function ajaxCallbackData() {
+                console.log("ajaxCallBackData(). Ready state is " +
+                        httpReq.readyState + " and httpReq status is " + httpReq.status);
+                if (httpReq.readyState == 4 && httpReq.status == 200) {
+
+                    var response = httpReq.responseText;
+                    console.log("ajaxCallBackData() response text is " + response);
+
+
+                    response = "(" + response + ")";
+                    var obj = eval(response);
+                    console.log("click to open up 'obj' item below.");
+                    console.log(obj);
+
+                    if (obj == null) {
+                        $("playerTable").innerHTML = "Error: JSON string evaluated to null.";
+                        return;
+                    }
+                    if (obj.dbError == null) {
+                        $("playerTable").innerHTML = "Error: JSON string did not have a 'dbError' property.";
+                        return;
+                    }
+
+                    if (obj.dbError.length > 0) {
+                        $("playerTable").innerHTML = "Database error: " + obj.dbError;
+                        return;
+                    }
+
+                    if (obj.recordList == null) {
+                        $("playerTable").innerHTML = "Error: JSON string did not have a 'recordList' property.";
+                        return;
+                    }
+
+                    if (obj.recordList.length == 0) {
+                        $("playerTable").innerHTML = "No Players Match Your Search";
+                        return;
+                    }
+
+                    var newRow;
+                    var newCell;
+                    var newImg;
+
+                    var newTable = document.createElement("table");
+                    $("playerTable").appendChild(newTable);
+
+                    for (i in obj.recordList) {
+
+                        newRow = newTable.insertRow(i);
+                        newCell = newRow.insertCell(0);
+                        newCell.innerHTML = obj.recordList[i].First_Name;
+
+                        newCell = newRow.insertCell(1);
+                        newCell.innerHTML = obj.recordList[i].Last_Name;
+
+                        newCell = newRow.insertCell(2);
+                        newCell.innerHTML = obj.recordList[i].Joined;
+
+                        newCell = newRow.insertCell(3);
+                        newCell.innerHTML = obj.recordList[i].Goals;
+
+                        newCell = newRow.insertCell(4);
+                        newCell.innerHTML = obj.recordList[i].Total_Apps;
+
+                        newCell = newRow.insertCell(5);
+                        newCell.innerHTML = obj.recordList[i].Player_email;
+
+                        newCell = newRow.insertCell(6);
+                        newImg = document.createElement("img");
+                        newImg.src = obj.recordList[i].img_url;
+                        newCell.appendChild(newImg);
+                    }
+
+
+
+                    newHead = newTable.createTHead();
+                    newRow = newHead.insertRow(0);
+
+                    newCell = newRow.insertCell(0);
+                    newCell.innerHTML = "First Name";
+
+                    newCell = newRow.insertCell(1);
+                    newCell.innerHTML = "Last Name";
+
+                    newCell = newRow.insertCell(2);
+                    newCell.innerHTML = "Joined";
+
+                    newCell = newRow.insertCell(3);
+                    newCell.innerHTML = "Goals";
+
+                    newCell = newRow.insertCell(4);
+                    newCell.innerHTML = "Total Appearences";
+
+                    newCell = newRow.insertCell(5);
+                    newCell.innerHTML = "E-mail";
+
+                    newCell = newRow.insertCell(6);
+                    newCell.innerHTML = "Image";
+
+
+                }
+            }
+
+
+            var httpReq;
+            if (window.XMLHttpRequest) {
+                httpReq = new XMLHttpRequest();  //For Firefox, Safari, Opera
+            } else if (window.ActiveXObject) {
+                httpReq = new ActiveXObject("Microsoft.XMLHTTP");         //For IE 5+
+            } else {
+                alert('ajax not supported');
+            }
+
+        </script>
+
+    </body>
+</html>

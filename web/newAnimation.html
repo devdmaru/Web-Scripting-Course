@@ -12,12 +12,16 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <style>
             body{
-                background-color: #1aa3ff;    
+                background-color:  #208000; 
+               
             }
+           
+           
             #box{
                 position: relative;
                 border: 3px #000000;
                 background-color: white;
+                background-image:url(DBZ_background.jpg);
                 margin: auto;
                 top:auto;
             }
@@ -72,15 +76,16 @@ and open the template in the editor.
 
     <body>
         
-        <input type = "button" value ="Advance Image" onclick ="changeImage()"/>
+        <input type = "button" value ="Advance Animation" onclick ="changeImage()"/>
+        <input type = "button" value ="Advance Image" onclick ="changePos()"/>
         <input type = "button" value ="Start Animation" onclick ="startAnimation()"/>
         <input type = "button" value ="Stop Animation" onclick ="stopAnimation()"/>
-     <!--   <input type = "button" value ="Start Image Movement" onclick ="moveImagePos()"/>
-        <input type = "button" value ="Stop Image Movement" onclick ="imagePosStop()"/> -->
+     
         <div id ="box">
             <div id = "pic" class="sprite sprite1"> </div>
         </div>
-           
+     
+     
         <div>
             <script language ="Javascript">
 
@@ -89,12 +94,12 @@ and open the template in the editor.
                 }
 
                 //Set box height and width. 
-                $("box").style.height = 500 + "px";
+                $("box").style.height = 480 + "px";
                 $("box").style.width = 500 + "px";
 
                 //initial image position.
-                $('pic').style.left = 0 + "px";
-                $('pic').style.top = 0 + "px";
+                $('pic').style.left = 20 + "px";
+                $('pic').style.top = 40 + "px";
 
 
 
@@ -119,7 +124,7 @@ and open the template in the editor.
                     if ((x > 450) || (x < 0)) {
                         p = -p;
                     }
-                    if ((y > 450) || (y < 0)) {
+                    if ((y > 425) || (y < 0)) {
                         q = -q;
                     }
                     $('pic').style.left = x + "px";

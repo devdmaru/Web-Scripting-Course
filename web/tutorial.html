@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Tutorial Less(CSS)</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="less_file.css" />
+    </head>
+    <body>
+        <div id="nav">
+            <h1>Dev Maru's Tutorial</h1>
+            <span id="home">
+                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">Home</a>
+            </span>
+        </div>
+        <div id="title">
+            <h1>LESS: CSS Pre-Processor</h1>
+        </div>
+
+        <div class="AltDiv">
+            <p>
+                This tutorial is about LESS. It is a pre processor that is used to make css more maintainable. It provides
+                use of variables, mixins, functions, and many other techniques. LESS has been one of the most 
+                popular CSS Pre-processors around, and has also been widely deployed in numerous front-end frameworks 
+                like Bootstrap. According, to their website LESS is a dynamic stylesheet language.
+            </p>
+            <p>
+                This tutorial will help you understand, what LESS is and how to use it for your development.
+            </p>
+        </div>
+        <div>
+            <h2>Introduction</h2>
+            <h3>The Compiler</h3>
+            <p>
+                LESS syntax is non-standard. The browser would not be able to render the file output, despite it being
+                very similar to CSS. The purpose of LESS is to turn LESS code into browser compatible CSS code. This 
+                is achieved by the LESS compiler.  
+            </p>
+            <br/><br/>
+            <h4> Here is an example of LESS code that when compiled will output CSS code.</h4>
+
+        </div>
+
+        <img id="pic1" src="LESS_code_1.png" width="400" height="375"/>
+        <img id ="pic2" src ="LESS_CSS.png" width="400" height="375"/>
+        <div class ="afterImg AltDiv">
+            <h2>Using LESS</h2>
+            <p>
+                LESS can be used in multiple ways. The first and easiest way is to install less on your computer. After
+                which it can be compiled on the command line. To install less you have to type the following command in a
+                command window:
+            </p>
+            <h3>$ npm install -g less</h3>
+            <p>
+                Here you first have to make sure that you have the node.js package manager installed on your device.
+                This will help in making the download easy.<br/>
+                After install the command line can be used to compile LESS files to CSS files.
+            </p>
+
+
+        </div>
+        <div>
+            <h2>Command Line Usage</h2>
+            <p>
+                Using the following command to compile a less file and output a CSS file.
+            </p>
+            <h3>$ lessc "less_file_name" "output_css_file_name" </h3>
+
+            <p>
+                This is the most preferred method to use LESS as you want to compile your less file, and have 
+                the compiler output a CSS file, which is what is linked in your HTML file. 
+
+            </p>
+
+        </div>
+        <div class="AltDiv">
+            <h2>Client-Side Usage</h2>
+            <p>
+                LESS can also be used from the client. It is the easiest way to get started with learning LESS, although
+                it is recommended to download LESS onto the device when performance and reliability is desired. <br/>
+                Your .less file should be linked in your code with the rel attribute set to "stylesheet/less"
+            </p>
+            <h3>&lt;link rel="stylesheet/less" type="text/css" href="styles.less" /&gt;</h3>
+            <p>
+                Next, you have to download less.js and include it in a script tag of the head element. 
+            </p>
+            <h3>&lt;script src="less.js" type="text/javascript">&lt;/script&gt;</h3>
+        </div>
+        <div>
+            <h2>Graphical User Interface/Editors</h2>
+            <p>
+                Another way to use LESS is to use a Graphical User Interface application. There are many different 
+                GUI's available that will help in writing LESS code. Some of these are:
+            </p>
+            <table>
+
+                <tr>
+                    <th>App</th>
+                    <th>Platform</th>
+                </tr>
+                <tr>
+                    <td>Mixture</td>
+                    <td>OS X / Windows</td>
+                </tr>
+                <tr>
+                    <td>Koala</td>
+                    <td>OS X / Windows</td>
+                </tr>
+                <tr>
+                    <td>Prepos</td>
+                    <td>OS X / Windows</td>
+                </tr>      
+            </table>
+            <p>
+                Another option is to use Code editors (IDE's), such as Netbeans. You have to install the LESS plugin to
+                be able to compile LESS files. In Netbeans for example, every time you save the less file, it
+                automatically complies the LESS file and saves the output to a CSS File. 
+            </p>
+        </div>
+        <div class="AltDiv">
+            <h2>LESS Syntax</h2>
+            <p>
+                LESS syntax is more like a programming language. It has variables, Operation, and Scope. While it may
+                behave like a programming language, it is also very similar looking to CSS. In essence, it is a blend of
+                CSS and general programming syntax.
+            </p>
+            <h3>Variables</h3>
+            <p>
+                LESS stylesheets allow us to use variables to store certain properties that require frequent use
+                just like in any programming language. <br/>
+                An example of variables being used is provided below.
+            </p>
+        </div>
+        <img id="pic3" src="LESS_code_3.png" width="400" height="500"/>
+        <div class="afterImg">
+            <p>
+                In the example above, we store certain properties in variables. This helps us as when you would want
+                to change a particular style you would only have to change the variable, instead of combing through the
+                CSS file, and trying to change every element that has that property.           
+            </p>
+            <h2>Mixins</h2>
+            <p>
+                In LESS you can reuse entire from one CSS ruleset into another. For example
+            </p>
+        </div>
+            <img id="pic4" src="LESS_code_4.png" width="400" height="150"/>
+            <img id="pic5" src="LESS_code_5.png" width="400" height="150"/>
+            <div class="afterImg AltDiv">
+                <p> Here is a class definition of certain properties. This can be called directly in another element.
+                    In CSS this is what the elements would look like.    
+                </p>
+            </div>
+            <img id="pic6" src="LESS_code_6.png" width="400" height="200"/>
+            <div class="afterImg">
+                <h2>Nested Rules</h2>
+                <p>
+                    LESS allows us to have nested rules. The parent element is declared first, and then the child elements
+                    of the parent are declared in a nested structure.  
+                </p>
+            </div>
+            <img id="pic7" src="LESS_code_7.png" width="400" height="300"/>
+            <div class="afterImg AltDiv">
+                <p>This essentially is the same as typing something like this in CSS.</p>
+            </div>
+            <img id="pic6" src="LESS_code_8.png" width="400" height="300"/>
+            <div class="afterImg">
+                <p>
+                    LESS is a powerful too that every web developer should have. It makes designing websites
+                    easier, and less time consuming. The reasoning behind this tutorial is to inform people know about
+                    how to use LESS, and to see how it adds to a developer's tool set. Hopefully, this tutorial has 
+                    convinced some of you to try LESS out.
+                </p>
+            </div>
+            <div class = "footer AltDiv">
+                Dev Maru
+            </div>
+    </body>
+</html>

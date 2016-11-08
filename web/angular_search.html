@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html ng-app="PlayerApp">
+    <head>
+        <title>AngularJS</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="angular_style.css">
+        <script>
+            var playerApp = angular.module('PlayerApp', []);
+            playerApp.controller('PlayerCtrl', function ($scope, $http) {
+                $http.get("webAPI.jsp").success(function (data) {
+                    $scope.players = data.recordList;
+                });
+
+                $scope.sortField = 'Last_name';
+                $scope.reverse = true;
+            });
+            
+        </script>
+    </head>
+    <body ng-controller="PlayerCtrl">
+        <div id="navContainer">
+            <h3>Angular Search</h3>
+            <div id="nav" >
+                <div> <a href="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">Home</a></div>
+            </div>
+        </div>
+        <div id="SearchContainer">           
+            Search for Players: <input ng-model="query" type="text"/>
+            <br/><br/>
+        </div>
+        <table>
+            <tr>
+                <th><a href="" ng-click="sortField = 'First_Name';
+                            reverse = !reverse">First Name</a></th>
+                <th><a href="" ng-click="sortField = 'Last_Name';
+                            reverse = !reverse">Last Name</a></th>
+                <th><a href="" ng-click="sortField = 'Joined';
+                            reverse = !reverse">Joined</a></th>
+                <th><a href="" ng-click="sortField = 'Goals';
+                            reverse = !reverse">Goals</a></th>
+                <th><a href="" ng-click="sortField = 'Total_Apps';
+                            reverse = !reverse">Total Appearances</a></th>
+                <th><a href="" ng-click="sortField = 'Player_email';
+                            reverse = !reverse">Player Email</a></th>
+                <th><a href="" ng-click="sortField = 'img_url';
+                            reverse = !reverse">Image</a></th>
+            </tr>
+            <tr ng-repeat="player in players| filter:query | orderBy:sortField:reverse">
+                <td>{{player.First_Name}}</td>
+                <td>{{player.Last_Name}}</td>
+                <td>{{player.Joined}}</td> 
+                <td>{{player.Goals}}</td> 
+                <td>{{player.Total_Apps}}</td> 
+                <td>{{player.Player_email}}</td> 
+                <td>
+                    <div id="imageContainer" style="background-image: url({{player.img_url}})">
+                    </div> 
+                </td>
+            </tr>
+        </table> 
+    </body>
+</html>

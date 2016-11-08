@@ -1,0 +1,3 @@
+User =	tuf37373
+Password = eezibiej
+DB =	fa16_4350_tuf37373

@@ -2,56 +2,95 @@
 <html>
     <head>
         <title>Dev D Maru's Arsenal F.C. Website</title>
-        <link href="newFirstStyleSheet.css" rel="stylesheet" type="text/css" /> 
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <link href="jQueryCSS.css" rel="stylesheet" type="text/css" /> 
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
+        <script>
+            $(document).ready(function () {
+
+                $("body").fadeOut();
+                $("body").fadeIn("slow");
+
+                $(".navHead").mouseenter(function () {
+                    $(this).next().slideDown("slow");
+                });
+
+                $(".navGroup").mouseleave(function () {
+                    $(this).children('.navdd').slideUp("slow");
+
+                });
+
+                $(".footerwords").mouseenter(function () {
+                    $(this).animate({left: '-6px'}, 100);
+                    $(this).animate({left: '6px'}, 100);
+                    $(this).animate({left: '-4px'}, 120);
+                    $(this).animate({left: '4px'}, 120);
+                    $(this).animate({left: '-2px'}, 140);
+                    $(this).animate({left: '2px'}, 140);
+                });
+
+                $(".picText").mouseenter(function () {
+                    $(".picSlide").toggle("slide");
+                });
+
+                $(".picText").mouseleave(function () {
+                    $(".picSlide").toggle("slide");
+                });
+            });
+        </script>
     </head>
     <body>
-        <div ng-app="">
-            <div  id="container">
-
-                <div ng-include src="'top.html'"> </div>
+        <div  id="container">
+            <div class="nonTitle">
+                <div id="titleNav">
+                    <div id="pageTitle">
+                        <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">
+                            <img src="Arsenal_cannon.png" width="95" height="90" id="pic2"/></a>
+                    </div>
+                    <div id="nav">
+                        <div class="navGroup">
+                            <div class ="navHead">Navigation<br/></div>
+                            <div class="navdd">
+                                <a href="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/Lab1.html">Lab1</a><br/>
+                                <a href="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/newAnimation.html">Animation</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/index.html">jQuery</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/Bootstrap_Lab.html">Responsive Design</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/testApiDomJs.html">Javascript API</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/testApiDomJq.html">jQuery API</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/angular_search.html">Angular Search</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/tutorial.html">Tutorial</a><br/>
+                                <a href ="http://cis-linux2.temple.edu:8080/fa16_4350_tuf37373/Labs.html">Labs Blog</a>
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <span class="stopFloat"></span>
+                </div>
+                <img src="arsenal_logo.png" width="400" height="350" id="pic"/>
+                <div class="picGroup">
+                    <div class="picText" >Hover Here<br/></div>
+                    <div class ="picSlide">
+                        <img src="Emirates_Stadium.png" width="1080" height="800" id="pic3"/>
+                    </div>
+                </div>
                 <div id="content"><!-- content -->
-                        
-                    <img src="arsenal_logo.png" width="400" height="350" id="pic"/>
-                    
-                   
-                    <h2> 
-                        <a href ="https://www.Arsenal.com">Location: London, United Kingdom</a>
-                    </h2>
                     <p>
-                        This website is going to have information about the football club Arsenal. The website should feature 
-                        news, information, schedule, and players of the club.
+                        This website has some cool interactive features.<br/>
                     </p>
-                    <p>
-                        Currently, the links in the nav bar link to a Wikipedia page about the club, and the schedule of the club's
-                        games for the calender year 2016-2017. When hovering over the nav links they change to the color purple. The
-                        second header links to the clubs main website. The second header's link is a different color from the nav bar's 
-                        links. The footer is slightly transparent. There is an image in the body section of the website. It is a .png
-                        image. Additionlay, the content of the page wraps around when the browser size is changed. The title nav has 
-                        a text shadow effect to give the letters a shadow. There is now a link to an animation page.
-                    </p>
-                    <p>
-                        For now I'm filling this page with gibberish.
-                    </p>
-                    <p>
-                        Lorem ipsum dolor sit amet, feugait voluptua no nam, vix cu scriptorem neglegentur, et minim mazim omnium vix. Eum an mucius erroribus vituperata, et vel splendide intellegam. Pro an hinc mandamus vituperata, meis percipitur et nam. Nec an elitr vocent percipitur. Ius doming maiorum ex.
-
-                        Mei ne quod tempor sententiae. Summo dicunt eum id. Ius no harum soleat. Et dolore iriure conceptam mea, modus erroribus iracundia ad usu, ut nam eros invidunt. Id eum dolores offendit deserunt, oporteat antiopam id per.
-
-                        Aliquam epicurei ex vel, aliquip voluptua per an, amet denique sed ea. Hinc euismod qui an, ponderum oporteat instructior cu sit. Graeci doctus eu pri, mollis accusam eu pri. Imperdiet argumentum cu sea.
-
-                        No cum unum deleniti. Cu pro diam decore, illum malis in vel. Ludus copiosae eos ei. Modus reprimique reprehendunt est cu, vix ex zril erroribus, intellegat consetetur ius an.
-
-                        Utinam apeirian atomorum no cum, te laboramus disputationi his, sonet fabellas comprehensam no sea. Sed in choro ornatus referrentur, pri unum appetere ei. Magna liber ubique ex has. Prima virtute pro ei.
-                    </p>
-
+                    <ul>
+                        <li> The website fades in slowly when the page is refreshed.</li> 
+                        <li> The nav bar slides down when hovered over.</li>
+                        <li> The footer animates when hovered over.</li>
+                        <li> Hovering over the box on the right will reveal an image.</li>
+                    </ul>
                 </div><!-- content -->
 
-
-
-                <div ng-include src="'bottom.html'"> </div>
-            </div> <!-- container -->
-        </div> <!- ng-app -->
+                <div id="footer">
+                    <div class ="footerwords">
+                        Dev Maru
+                    </div>
+                </div>
+            </div> <!-- nonTitle --> 
+        </div> <!-- container -->
     </body>
 </html>

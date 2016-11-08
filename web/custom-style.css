@@ -1,0 +1,212 @@
+ /*navbar-wrapper has a position: fixed. */
+.navbar-wrapper {
+    position: fixed;
+    margin-top: 2%;
+    opacity: 0.90;
+    z-index: 5;
+    left: 4%;
+    width: 90%;
+   
+}
+/* changed the nav to have rounded borders*/
+.navbar{  
+    border-radius: 12px;  
+   
+}
+/* some small changes to the alignment*/
+.navbar-header{   
+        margin-left: 1%;
+}
+/* changing the position of the title of the website in the nav bar*/
+.navbar-header a{
+    padding-bottom: -1%;   
+}
+#pic1{
+    height: 700px;
+
+}
+#pic2{
+    height: 700px;
+
+}
+#pic3{
+    height: 700px;
+
+}
+#pic4{
+    border: thick solid gold;
+    margin-top: -2%;
+}
+#pic5{
+    border: thick solid gold;
+    margin-top: -2%;
+}
+#pic6{
+    border: thick solid gold;
+    margin-top: -2%;
+}
+/* using bootstraps form element, I change the positioning of the form*/
+.form-group{
+    padding: 1%;
+}
+
+form{
+    padding: 5%;
+
+}
+
+#navbar1{
+     text-align: center;
+     float: right;
+     padding-top: 1%;
+}
+#footer{
+    margin-top: 10%;
+    text-align: center;
+    border: thick solid gold;
+    background-color: skyblue;
+    padding: 2%;
+    font-size: 20px;
+}
+/*Will cahnge the layout of the screen when the screen size is upto 1000px*/ 
+@media screen and (max-width: 1000px) {
+    #pic1{
+        height:500px;
+        width: 1000px;
+    }
+    #pic2{
+        height:500px;
+        width: 1000px;
+
+    }
+    #pic3{
+        height:500px;
+        width: 1000px;
+    }
+    #pic4{
+        height: 200px;
+        width: 275px; 
+        padding-right: 10%;
+    }
+    #pic5{
+        height: 200px;
+        width: 275px;
+    }
+    #pic6{
+        height: 200px;
+        width: 275px;
+    }
+}
+/*Will cahnge the layout of the screen when the screen size is upto 900px*/ 
+@media screen and (max-width: 900px) {
+    #pic1{
+        height:500px;
+        width: 900px;
+    }
+    #pic2{
+        height:500px;
+        width: 900px;
+
+    }
+    #pic3{
+        height:500px;
+        width: 900px;
+    }
+    #pic4{
+        height: 200px;
+        width: 250px; 
+    }
+    #pic5{
+        height: 200px;
+        width: 250px;
+    }
+    #pic6{
+        height: 200px;
+        width: 250px;
+    }
+
+}
+
+
+/*Will cahnge the layout of the screen when the screen size is upto 768px*/ 
+@media screen and (max-width: 768px) {
+    #pic1{
+        height:500px;
+        width: 800px;
+    }
+    #pic2{
+        height:500px;
+        width: 800px;
+
+    }
+    #pic3{
+        height:500px;
+        width: 800px;
+    }
+    #pic4{
+        height: 200px;
+        width: 300px; 
+    }
+    #pic5{
+        height: 200px;
+        width: 300px;
+    }
+    #pic6{
+        height: 200px;
+        width: 300px;
+    }
+
+    #footer{
+        width:100%;
+        text-align: center;
+        border: thick solid gold;
+        background-color: skyblue;
+        padding: 10%;
+        font-size: 20px;
+    }
+
+}
+/*Will cahnge the layout of the screen when the screen size is upto 480px*/ 
+@media screen and (max-width: 480px) {
+   
+    #pic1{
+        height: 400px;
+        width: 600px;
+    }
+    #pic2{
+        height: 400px;
+        width: 600px;
+    }
+    #pic3{
+        height: 400px;
+        width: 600px;
+
+    }
+    #pic4{
+        height: 200px;
+        width: 300px; 
+    }
+    #pic5{
+        margin-top: 3%;
+        height: 200px;
+        width: 300px;
+    }
+    #pic6{
+        margin-top: 3%;
+        height: 200px;
+        width: 300px;
+    }
+
+    #footer{
+        width:100%;
+        text-align: center;
+        border: thick solid gold;
+        background-color: skyblue;
+        padding: 10%;
+        font-size: 20px;
+    } 
+
+}
+
+
+
